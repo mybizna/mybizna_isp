@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mybizna_isp_billing_cycle,mybizna_isp.billing_cycle,model_mybizna_isp_billing_cycle,base.group_user,1,1,1,1
+access_mybizna_isp_billing_items,mybizna_isp.billing_items,model_mybizna_isp_billing_items,base.group_user,1,1,1,1
+access_mybizna_isp_billing,mybizna_isp.billing,model_mybizna_isp_billing,base.group_user,1,1,1,1
+access_mybizna_isp_connections,mybizna_isp.connections,model_mybizna_isp_connections,base.group_user,1,1,1,1
+access_mybizna_isp_gateways,mybizna_isp.gateways,model_mybizna_isp_gateways,base.group_user,1,1,1,1
+access_mybizna_isp_packages_setupitems,mybizna_isp.packages_setupitems,model_mybizna_isp_packages_setupitems,base.group_user,1,1,1,1
+access_mybizna_isp_packages,mybizna_isp.packages,model_mybizna_isp_packages,base.group_user,1,1,1,1
+access_mybizna_isp_connections_invoices,mybizna_isp.connections_invoices,model_mybizna_isp_connections_invoices,base.group_user,1,1,1,1
+access_mybizna_isp_connections_setupitems,mybizna_isp.connections_setupitems,model_mybizna_isp_connections_setupitems,base.group_user,1,1,1,1

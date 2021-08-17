@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+
+      <record id="mybizna_isp.prepare_billing" model="ir.cron">
+        <field name="name">Mybizna Process Billing</field>
+        <field name="model_id" ref="model_mybizna_isp_connections"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.connections').prepareBilling()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+    
+      <record id="mybizna_isp.process_all_connections" model="ir.cron">
+        <field name="name">Mybizna Process New Connection</field>
+        <field name="model_id" ref="model_mybizna_isp_connections"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.connections').processAllConnections()</field>
+        <field name="interval_type">minutes</field>
+        <field name="interval_number">6</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+    
+      <record id="mybizna_isp.process_new_connections" model="ir.cron">
+        <field name="name">Mybizna Process All Connection</field>
+        <field name="model_id" ref="model_mybizna_isp_connections"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.connections').processNewConnections()</field>
+        <field name="interval_type">minutes</field>
+        <field name="interval_number">6</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+    
+      <record id="mybizna_isp.process_expiry" model="ir.cron">
+        <field name="name">Mybizna Process Expiry</field>
+        <field name="model_id" ref="model_mybizna_isp_connections"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.connections').processExpiry()</field>
+        <field name="interval_type">minutes</field>
+        <field name="interval_number">6</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+
+    
+      <record id="mybizna_isp.process_expiry" model="ir.cron">
+        <field name="name">Mybizna Generate Invoices</field>
+        <field name="model_id" ref="model_mybizna_isp_billing"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.billing').processBilling()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+
+    
+      <record id="mybizna_isp.process_expiry" model="ir.cron">
+        <field name="name">Mybizna Update Packages</field>
+        <field name="model_id" ref="model_mybizna_isp_billing"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">env.get('mybizna.isp.packages').processPackages()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="numbercall">-1</field>
+        <field name="priority">5</field>
+        <field name="doall">False</field>
+        <field name="active">True</field>
+      </record>
+
+
+    </data>
+</odoo>

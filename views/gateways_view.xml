@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="mybizna_isp.gateways_list">
+      <field name="name">Gateways List</field>
+      <field name="model">mybizna.isp.gateways</field>
+      <field name="arch" type="xml">
+        <tree  default_order='id desc'>
+          <field name="title"/>
+          <field name="username"/>
+          <field name="password"/>
+          <field name="database"/>
+          <field name="ip_address"/>
+          <field name="port"/>
+          <field name="type"/>
+          <field name="published"/>
+          <field name="by_sql_file"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="mybizna_isp.gateways_action_window">
+      <field name="name">Gateways</field>
+      <field name="res_model">mybizna.isp.gateways</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="mybizna_isp.gateways_action_server">
+      <field name="name">Gateways</field>
+      <field name="model_id" ref="model_mybizna_isp_gateways"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Gateways" id="mybizna_isp.gateways" parent="mybizna_isp.menu_root"
+              action="mybizna_isp.gateways_action_window" sequence="6"/>
+
+
+  </data>
+</odoo>

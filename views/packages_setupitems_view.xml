@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="mybizna_isp.packages_setupitems_list">
+      <field name="name">Packages Setup Items List</field>
+      <field name="model">mybizna.isp.packages_setupitems</field>
+      <field name="arch" type="xml">
+        <tree default_order='id desc'>
+          <field name="title"/>
+          <field name="package_id"/>
+          <field name="amount"/>
+          <field name="published"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="mybizna_isp.packages_setupitems_action_window">
+      <field name="name">Packages</field>
+      <field name="res_model">mybizna.isp.packages_setupitems</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="mybizna_isp.packages_setupitems_action_server">
+      <field name="name">Packages</field>
+      <field name="model_id" ref="model_mybizna_isp_packages_setupitems"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    
+
+  </data>
+</odoo>

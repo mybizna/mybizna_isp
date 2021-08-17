@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="mybizna_isp.packages_list">
+      <field name="name">Packages List</field>
+      <field name="model">mybizna.isp.packages</field>
+      <field name="arch" type="xml">
+        <tree default_order='id desc'>
+          <field name="title"/>
+          <field name="gateway_id"/>
+          <field name="billing_cycle_id"/>
+          <field name="amount"/>
+          <field name="speed"/>
+          <field name="speed_type"/>
+          <field name="published"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="mybizna_isp.packages_form">
+      <field name="name">Package Form</field>
+      <field name="model">mybizna.isp.packages</field>
+      <field name="arch" type="xml">
+        <form string="To-do Task">
+          <sheet>
+            <group col="4">
+              <field name="title"/>
+              <field name="amount"/>
+              <field name="speed"/>
+              <field name="speed_type"/>
+              <field name="billing_cycle_id"/>
+              <field name="gateway_id"/>
+              <field name="published"/>
+            </group>
+            <group col="2">
+                  <field name="description"/>
+            </group>
+
+            <notebook>
+                <page string="Package Setup Items">
+                  <field name="packages_setupitems_ids">
+                    <tree string="Package Setup Items">
+                      <field name="title"/>
+                      <field name="amount"/>
+                      <field name="published"/>
+                    </tree>
+                  </field>
+                </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+ 
+
+
+    <record id="mybizna_isp.action_update_packages" model="ir.actions.server">
+
+      <field name="name">Update Packages</field>
+
+      <field name="type">ir.actions.server</field>
+
+      <field name="model_id" ref="model_mybizna_isp_packages"/>
+
+      <field name="state">code</field>
+
+      <field name="code">env.get('mybizna.isp.packages').processPackages()</field>
+
+    </record>
+ 
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="mybizna_isp.packages_action_window">
+      <field name="name">Packages</field>
+      <field name="res_model">mybizna.isp.packages</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="mybizna_isp.packages_action_server">
+      <field name="name">Packages</field>
+      <field name="model_id" ref="model_mybizna_isp_packages"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Packages" id="mybizna_isp.packages" parent="mybizna_isp.menu_setting"
+              action="mybizna_isp.packages_action_window" sequence="5"/>
+    
+    <menuitem name="Update Packages" id="mybizna_isp.update_packages" parent="mybizna_isp.menu_action"
+              action="mybizna_isp.action_update_packages" sequence="5"/>
+
+
+  </data>
+</odoo>

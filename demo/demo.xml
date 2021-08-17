@@ -1,0 +1,133 @@
+<odoo>
+    <data noupdate="1">
+
+          <record id="billing_cycle_1" model="mybizna.isp.billing_cycle">
+            <field name="title">Daily</field>
+            <field name="description">Daily</field>
+            <field name="duration_type">days</field>
+            <field name="duration">1</field>
+            <field name="published">1</field>
+          </record>
+
+          <record id="billing_cycle_2" model="mybizna.isp.billing_cycle">
+            <field name="title">Weekly</field>
+            <field name="description">Weekly</field>
+            <field name="duration_type">weeks</field>
+            <field name="duration">7</field>
+            <field name="published">1</field>
+          </record>  
+
+          <record id="billing_cycle_3" model="mybizna.isp.billing_cycle">
+            <field name="title">Monthly</field>
+            <field name="description">Monthly</field>
+            <field name="duration_type">months</field>
+            <field name="duration">1</field>
+            <field name="published">1</field>
+          </record>  
+
+          <record id="billing_cycle_4" model="mybizna.isp.billing_cycle">
+            <field name="title">Quarterly</field>
+            <field name="description">Quarterly</field>
+            <field name="duration_type">months</field>
+            <field name="duration">3</field>
+            <field name="published">1</field>
+          </record>   
+
+          <record id="billing_cycle_5" model="mybizna.isp.billing_cycle">
+            <field name="title">Bi-Annually</field>
+            <field name="description">Bi-Annually</field>
+            <field name="duration_type">months</field>
+            <field name="duration">6</field>
+            <field name="published">1</field>
+          </record>
+
+          <record id="billing_cycle_6" model="mybizna.isp.billing_cycle">
+            <field name="title">Annually</field>
+            <field name="description">Annually</field>
+            <field name="duration_type">months</field>
+            <field name="duration">12</field>
+            <field name="published">1</field>
+          </record>   
+ 
+          <record id="gateways_1" model="mybizna.isp.gateways">
+            <field name="title">Freeradius</field>
+            <field name="username">admin</field>
+            <field name="password">passme</field>
+            <field name="database">freeradius</field>
+            <field name="ip_address">127.0.0.1</field>
+            <field name="port">3306</field>
+            <field name="type">freeradius</field>
+            <field name="published">1</field>
+          </record> 
+
+          <record id="packages_1" model="mybizna.isp.packages">
+            <field name="title">1M</field>
+            <field name="description">1 Megabyte</field>
+            <field name="gateway_id" ref="gateways_1"/>
+            <field name="billing_cycle_id" ref="billing_cycle_3"/>
+            <field name="amount">10</field>
+            <field name="speed">1</field>
+            <field name="speed_type">M</field>
+            <field name="published">1</field>
+          </record> 
+
+          <record id="packages_2" model="mybizna.isp.packages">
+            <field name="title">2M</field>
+            <field name="description">2 Megabytes</field>
+            <field name="gateway_id" ref="gateways_1"/>
+            <field name="billing_cycle_id" ref="billing_cycle_3"/>
+            <field name="amount">20</field>
+            <field name="speed">2</field>
+            <field name="speed_type">M</field>
+            <field name="published">1</field>
+          </record>        
+
+          <record id="packages_setupitems_1" model="mybizna.isp.packages_setupitems">
+            <field name="title">Router</field>
+            <field name="description">Router</field>
+            <field name="package_id" ref="packages_1"/>
+            <field name="amount">10</field>
+            <field name="published">1</field>
+          </record>     
+
+          <record id="packages_setupitems_2" model="mybizna.isp.packages_setupitems">
+            <field name="title">Cable</field>
+            <field name="description">Cable</field>
+            <field name="package_id" ref="packages_1"/>
+            <field name="amount">6</field>
+            <field name="published">1</field>
+          </record>   
+             
+          <record id="packages_setupitems_3" model="mybizna.isp.packages_setupitems">
+            <field name="title">Installation</field>
+            <field name="description">Installation</field>
+            <field name="package_id" ref="packages_1"/>
+            <field name="amount">15</field>
+            <field name="published">1</field>
+          </record>        
+
+          <record id="packages_setupitems_4" model="mybizna.isp.packages_setupitems">
+            <field name="title">Router</field>
+            <field name="description">Router</field>
+            <field name="package_id" ref="packages_2"/>
+            <field name="amount">10</field>
+            <field name="published">1</field>
+          </record>     
+
+          <record id="packages_setupitems_5" model="mybizna.isp.packages_setupitems">
+            <field name="title">Cable</field>
+            <field name="description">Cable</field>
+            <field name="package_id" ref="packages_2"/>
+            <field name="amount">6</field>
+            <field name="published">1</field>
+          </record> 
+             
+          <record id="packages_setupitems_6" model="mybizna.isp.packages_setupitems">
+            <field name="title">Installation</field>
+            <field name="description">Installation</field>
+            <field name="package_id" ref="packages_2"/>
+            <field name="amount">15</field>
+            <field name="published">1</field>
+          </record>     
+    </data>
+</odoo>
