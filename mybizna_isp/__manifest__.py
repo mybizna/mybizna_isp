@@ -21,6 +21,8 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'account'],
 
+    'images': ['static/images/banner.png', 'static/description/icon.png',  'static/images/thubmnail1.png'],
+
     # always loaded
     'data': [
         'security/ir.model.access.csv',
